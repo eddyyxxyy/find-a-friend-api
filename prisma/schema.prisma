@@ -1,0 +1,122 @@
+// Prisma Client Generator
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Web Schema Docs Generator
+generator docs {
+  provider = "node node_modules/prisma-docs-generator"
+  output   = "../docs/prisma/web"
+}
+
+// Entity Relationship Diagram Generator
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../docs/prisma/ERD.md"
+}
+
+// Database generator
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Enum representing different sizes of pets.
+enum PetsSizes {
+  SMALL
+  MEDIUM
+  LARGE
+  HUGE
+
+  @@map("pets_sizes")
+}
+
+/// Enum representing different energy levels of pets.
+enum PetsEnergyLevels {
+  LOW
+  MEDIUM
+  HIGH
+
+  @@map("pets_energy_levels")
+}
+
+/// Enum representing different independence levels of pets.
+enum PetsIndependenceLevel {
+  LOW
+  MEDIUM
+  HIGH
+
+  @@map("pets_independence_levels")
+}
+
+/// Enum representing different types of environments suitable for pets.
+enum PetsEnvironmentMinimumSizes {
+  SMALL
+  MEDIUM
+  WIDE
+  XWIDE
+
+  @@map("pets_environment_minimum_sizes")
+}
+
+/// Represents organizations that own pets.
+model Orgs {
+  /// Unique identifier for the organization.
+  id             String @id @default(uuid())
+  /// Name of the organization.
+  name           String
+  /// Name of the owner(s) of the organization.
+  ownersName     String @map("owners_name")
+  /// Email address of the organization.
+  email          String @unique
+  /// Hashed password for organization login.
+  passwordHash   String @map("password_hash")
+  /// WhatsApp number of the organization.
+  whatsappNumber String @map("whatsapp_number")
+
+  /// ZIP code of the organization's location.
+  zipCode String @map("zip_code")
+  /// State where the organization is located.
+  state   String
+  /// City where the organization is located.
+  city    String
+  /// Street address of the organization.
+  street  String
+
+  /// Latitude coordinate of the organization's location.
+  latitude  Decimal
+  /// Longitude coordinate of the organization's location.
+  longitude Decimal
+
+  /// Pets associated with this organization.
+  pets Pets[]
+
+  @@map("orgs")
+}
+
+/// Represents pets available for adoption.
+model Pets {
+  /// Unique identifier for the pet.
+  id                     String                      @id @default(uuid())
+  /// Name of the pet.
+  name                   String
+  /// Description about the pet.
+  about                  String
+  /// Age of the pet in years.
+  age                    Int
+  /// Size category of the pet (e.g., Small, Medium, Large).
+  size                   PetsSizes
+  /// Energy level of the pet (e.g., Low, Medium, High).
+  energyLevel            PetsEnergyLevels            @map("energy_level")
+  /// Independence level of the pet (e.g., Low, Medium, High).
+  independenceLevel      PetsIndependenceLevel       @map("independence_level")
+  /// Suitable environment type for the pet (e.g., Small, Medium, Wide).
+  environmentMinimumSize PetsEnvironmentMinimumSizes @map("environment_minimum_size")
+
+  /// Organization that owns the pet.
+  org    Orgs?   @relation(fields: [orgsId], references: [id])
+  /// Foreign key reference to the organization owning the pet.
+  orgsId String? @map("orgs_id")
+
+  @@map("pets")
+}
