@@ -3,6 +3,7 @@
     "project",
     "database",
     "repos",
-    "lint"
+    "lint",
+    "services"
   ]
 }
