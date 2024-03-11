@@ -4,6 +4,7 @@
     "database",
     "repos",
     "lint",
-    "services"
+    "services",
+    "git"
   ]
 }
