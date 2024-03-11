@@ -60,7 +60,7 @@ enum PetsEnvironmentMinimumSizes {
 }
 
 /// Represents organizations that own pets.
-model Orgs {
+model Org {
   /// Unique identifier for the organization.
   id             String @id @default(uuid())
   /// Name of the organization.
@@ -89,13 +89,13 @@ model Orgs {
   longitude Decimal
 
   /// Pets associated with this organization.
-  pets Pets[]
+  pets Pet[]
 
   @@map("orgs")
 }
 
 /// Represents pets available for adoption.
-model Pets {
+model Pet {
   /// Unique identifier for the pet.
   id                     String                      @id @default(uuid())
   /// Name of the pet.
@@ -114,7 +114,7 @@ model Pets {
   environmentMinimumSize PetsEnvironmentMinimumSizes @map("environment_minimum_size")
 
   /// Organization that owns the pet.
-  org    Orgs?   @relation(fields: [orgsId], references: [id])
+  org    Org?    @relation(fields: [orgsId], references: [id])
   /// Foreign key reference to the organization owning the pet.
   orgsId String? @map("orgs_id")
 
