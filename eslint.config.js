@@ -29,6 +29,7 @@ export default tseslint.config(
       "@stylistic/max-len": ["error", 80, 2],
       "@stylistic/quotes": ["error", "double"],
       "@stylistic/semi": ["error"],
+      "@typescript-eslint/no-base-to-string": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "sort/imports": "off",
