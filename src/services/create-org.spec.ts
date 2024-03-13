@@ -1,3 +1,4 @@
+import { makeOrg } from "@tests/make-org";
 import { compare } from "bcrypt";
 import { beforeEach, describe, expect, it } from "vitest";
 
@@ -7,27 +8,15 @@ import {
   makeCreateOrgService,
 } from "./factories/in-memory/make-in-memory-create-org-service";
 
-let sut: CreateOrgService;
-
 describe("Create Org Service", () => {
+  let sut: CreateOrgService;
+
   beforeEach(() => {
     sut = makeCreateOrgService();
   });
 
   it("should be able to create org", async () => {
-    const org = {
-      city: "Franca",
-      email: "testowner@email.com",
-      latitude: -20.5936743,
-      longitude: -47.5889768,
-      name: "Test Org",
-      ownersName: "Test Owner",
-      password: "123456",
-      state: "São Paulo",
-      street: "Test Street",
-      whatsappNumber: "5511991234567",
-      zipCode: "12345678",
-    };
+    const org = makeOrg();
 
     const { org: createdOrg } = await sut.execute({ data: org });
 
@@ -35,19 +24,7 @@ describe("Create Org Service", () => {
   });
 
   it("should be hash password when creating an org", async () => {
-    const org = {
-      city: "Franca",
-      email: "testowner@email.com",
-      latitude: -20.5936743,
-      longitude: -47.5889768,
-      name: "Test Org",
-      ownersName: "Test Owner",
-      password: "123456",
-      state: "São Paulo",
-      street: "Test Street",
-      whatsappNumber: "5511991234567",
-      zipCode: "12345678",
-    };
+    const org = makeOrg();
 
     const { org: { passwordHash } } = await sut.execute({ data: org });
 
@@ -57,19 +34,7 @@ describe("Create Org Service", () => {
   });
 
   it("should not be able to create org with same email", async () => {
-    const org = {
-      city: "Franca",
-      email: "testowner@email.com",
-      latitude: -20.5936743,
-      longitude: -47.5889768,
-      name: "Test Org",
-      ownersName: "Test Owner",
-      password: "123456",
-      state: "São Paulo",
-      street: "Test Street",
-      whatsappNumber: "5511991234567",
-      zipCode: "12345678",
-    };
+    const org = makeOrg();
 
     await sut.execute({ data: org });
 
