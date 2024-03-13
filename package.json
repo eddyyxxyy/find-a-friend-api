@@ -11,7 +11,7 @@
     "prisma:docs": "npx prisma-docs-generator serve -p 3344",
     "start": "node dist/server.cjs",
     "start:dev": "tsx watch src/server.ts",
-    "test": "vitest run --dir src/services"
+    "test:unit": "vitest run --dir src/services"
   },
   "repository": {
     "type": "git",
