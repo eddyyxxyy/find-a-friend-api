@@ -10,7 +10,7 @@ An API for pet adoption developed in TypeScript with SOLID principles and testin
 - [ ] Must be able to list all pets available for adoption in a city
 - [ ] Must be able to filter pets by their characteristics
 - [ ] Must be able to view details of a pet for adoption
-- [ ] Must be able to register as an organization (ORG)
+- [x] Must be able to register as an organization (ORG)
 - [ ] Must be able to login as an ORG
 
 ### Business Rules

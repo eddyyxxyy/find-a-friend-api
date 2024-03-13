@@ -5,6 +5,8 @@
     "repos",
     "lint",
     "services",
-    "git"
+    "git",
+    "appRules",
+    "tests"
   ]
 }
