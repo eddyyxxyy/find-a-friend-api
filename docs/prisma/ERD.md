@@ -59,7 +59,7 @@ XWIDE XWIDE
     PetsIndependenceLevel independence_level 
     PetsEnvironmentMinimumSizes environment_minimum_size 
     Boolean was_adopted 
-    String orgs_id "❓"
+    String org_id "❓"
     }
   
     "orgs" o{--}o "pets" : "pets"
