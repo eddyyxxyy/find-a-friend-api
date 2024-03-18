@@ -20,4 +20,4 @@ An API for pet adoption developed in TypeScript with SOLID principles and testin
 - [ ] A pet must be linked to an ORG
 - [ ] Users who want to adopt a pet contact the ORG via WhatsApp
 - [ ] All filters, except city, are optional
-- [ ] ORGs must be logged in to access the application as an admin
+- [x] ORGs must be logged in to access the application as an admin
