@@ -25,6 +25,12 @@ class InMemoryPetsRepository implements IPetsRepository {
 
     return new Promise<Pet>((resolve) => resolve(pet));
   }
+
+  findById(data: { id: string; }) {
+    const pet = this.pets.find((pet) => pet.id === data.id);
+
+    return new Promise<Pet | null>((resolve) => resolve(pet ?? null));
+  }
 }
 
 export { InMemoryPetsRepository };

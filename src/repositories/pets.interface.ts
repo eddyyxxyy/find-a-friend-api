@@ -21,6 +21,16 @@ interface IPetsRepository {
    * @returns A Promise that resolves to the newly created `Pet` object.
    */
   create(data: CreatePetInput): Promise<Pet>;
+  /**
+   * Finds a pet by its id.
+   *
+   * @param data - An object containing the id property.
+   * - `id` (string): The id of the pet to search for.
+   *
+   * @returns A Promise that resolves to the matching `Pet` object
+   * or `null` if no pet is found.
+   */
+  findById(data: { id: string }): Promise<Pet | null>;
 }
 
 export { IPetsRepository };
