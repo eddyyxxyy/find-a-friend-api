@@ -59,7 +59,7 @@ XWIDE XWIDE
     PetsIndependenceLevel independence_level 
     PetsEnvironmentMinimumSizes environment_minimum_size 
     Boolean was_adopted 
-    String org_id "❓"
+    String org_id 
     }
   
     "orgs" o{--}o "pets" : "pets"
@@ -67,5 +67,5 @@ XWIDE XWIDE
     "pets" o|--|| "PetsEnergyLevels" : "enum:energy_level"
     "pets" o|--|| "PetsIndependenceLevel" : "enum:independence_level"
     "pets" o|--|| "PetsEnvironmentMinimumSizes" : "enum:environment_minimum_size"
-    "pets" o|--|o "orgs" : "org"
+    "pets" o|--|| "orgs" : "org"
 ```

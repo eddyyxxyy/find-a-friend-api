@@ -116,9 +116,9 @@ model Pet {
   wasAdopted             Boolean                     @default(false) @map("was_adopted")
 
   /// Organization that owns the pet.
-  org   Org?    @relation(fields: [orgId], references: [id])
+  org   Org    @relation(fields: [orgId], references: [id])
   /// Foreign key reference to the organization owning the pet.
-  orgId String? @map("org_id")
+  orgId String @map("org_id")
 
   @@map("pets")
 }
