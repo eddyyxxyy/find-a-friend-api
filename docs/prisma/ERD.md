@@ -58,6 +58,7 @@ XWIDE XWIDE
     PetsEnergyLevels energy_level 
     PetsIndependenceLevel independence_level 
     PetsEnvironmentMinimumSizes environment_minimum_size 
+    Boolean was_adopted 
     String orgs_id "❓"
     }
   

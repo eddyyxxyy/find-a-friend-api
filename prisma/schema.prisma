@@ -112,6 +112,8 @@ model Pet {
   independenceLevel      PetsIndependenceLevel       @map("independence_level")
   /// Suitable environment type for the pet (e.g., Small, Medium, Wide).
   environmentMinimumSize PetsEnvironmentMinimumSizes @map("environment_minimum_size")
+  /// If the pet was adopted it would have this field as true, if not as false.
+  wasAdopted             Boolean                     @default(false) @map("was_adopted")
 
   /// Organization that owns the pet.
   org    Org?    @relation(fields: [orgsId], references: [id])
