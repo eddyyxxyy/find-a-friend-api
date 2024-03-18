@@ -28,7 +28,7 @@ describe("Create Org Service", () => {
 
     const { org: { passwordHash } } = await sut.execute({ data: org });
 
-    const isPasswordHashed = await compare("123456", passwordHash);
+    const isPasswordHashed = await compare(org.password, passwordHash);
 
     expect(isPasswordHashed).toBe(true);
   });

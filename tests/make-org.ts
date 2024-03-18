@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 interface Org {
   city: string;
   email: string;
@@ -12,24 +14,28 @@ interface Org {
   zipCode: string;
 }
 
+type Overwrite = {
+  password?: string;
+}
+
 /**
-* Creates an organization object with default values for testing purposes
+* Creates an organization object with random values for testing purposes
 *
 * @returns {Org} An `Org` object
 */
-function makeOrg(): Org {
+function makeOrg(overwrite?: Overwrite): Org {
   return {
-    city: "Franca",
-    email: "testowner@email.com",
-    latitude: -20.5936743,
-    longitude: -47.5889768,
-    name: "Test Org",
-    ownersName: "Test Owner",
-    password: "123456",
-    state: "São Paulo",
-    street: "Test Street",
-    whatsappNumber: "5511991234567",
-    zipCode: "12345678",
+    city: faker.location.city(),
+    email: faker.internet.email(),
+    latitude: faker.location.latitude(),
+    longitude: faker.location.longitude(),
+    name: faker.company.name(),
+    ownersName: faker.person.fullName(),
+    password: overwrite?.password ?? faker.internet.password(),
+    state: faker.location.state(),
+    street: faker.location.streetAddress(),
+    whatsappNumber: faker.phone.number(),
+    zipCode: faker.location.zipCode(),
   };
 }
 
