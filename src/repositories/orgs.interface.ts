@@ -29,6 +29,16 @@ interface IOrgsRepository {
    * or `null` if no organization is found.
    */
   findByEmail(data: { email: string }): Promise<Org | null>;
+  /**
+   * Finds an organization by its id.
+   *
+   * @param data - An object containing the id property.
+   * - `id` (string): The id of the organization to search for.
+   *
+   * @returns A Promise that resolves to the matching `Org` object
+   * or `null` if no organization is found.
+   */
+  findById(data: { id: string }): Promise<Org | null>;
 }
 
 export { IOrgsRepository };

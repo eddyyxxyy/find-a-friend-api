@@ -31,6 +31,12 @@ class InMemoryOrgsRepository implements IOrgsRepository {
 
     return new Promise<Org | null>((resolve) => resolve(org ?? null));
   }
+
+  findById(data: { id: string }) {
+    const org = this.orgs.find((org) => org.id === data.id);
+
+    return new Promise<Org | null>((resolve) => resolve(org ?? null));
+  }
 }
 
 export { InMemoryOrgsRepository };
