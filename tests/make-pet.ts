@@ -1,9 +1,9 @@
 import { randomUUID } from 'node:crypto';
 import { faker } from '@faker-js/faker';
 
-type TSizes = "SMALL" | "MEDIUM" | "LARGE" | "HUGE";
-type TEnergyAndIndependenceLevels = "LOW" | "MEDIUM" | "HIGH";
-type TEnvironmentMinimumSize = "SMALL" | "MEDIUM" | "WIDE" | "XWIDE";
+export type TSizes = "SMALL" | "MEDIUM" | "LARGE" | "HUGE";
+export type TEnergyAndIndependenceLevels = "LOW" | "MEDIUM" | "HIGH";
+export type TEnvironmentMinimumSize = "SMALL" | "MEDIUM" | "WIDE" | "XWIDE";
 
 interface Pet {
   id: string;

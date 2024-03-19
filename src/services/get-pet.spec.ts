@@ -19,8 +19,8 @@ let sut: GetPetService;
 
 describe("Get Pet Service", () => {
   beforeEach(() => {
-    inMemoryPetsRepository = new InMemoryPetsRepository();
     inMemoryOrgsRepository = new InMemoryOrgsRepository();
+    inMemoryPetsRepository = new InMemoryPetsRepository(inMemoryOrgsRepository);
     sut = new GetPetService(inMemoryPetsRepository);
   });
 

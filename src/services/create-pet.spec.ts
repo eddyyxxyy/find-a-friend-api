@@ -20,7 +20,7 @@ let sut: CreatePetService;
 describe("Create Pet Service", () => {
   beforeEach(() => {
     inMemoryOrgsRepository = new InMemoryOrgsRepository();
-    inMemoryPetsRepository = new InMemoryPetsRepository();
+    inMemoryPetsRepository = new InMemoryPetsRepository(inMemoryOrgsRepository);
     sut = new CreatePetService(inMemoryOrgsRepository, inMemoryPetsRepository);
   });
 

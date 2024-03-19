@@ -1,6 +1,20 @@
 import type { Pet, Prisma } from "@prisma/client";
+import {
+  TEnergyAndIndependenceLevels,
+  TEnvironmentMinimumSize,
+  TSizes,
+} from "@tests/make-pet";
 
 export type CreatePetInput = Prisma.PetUncheckedCreateInput;
+
+export interface IFindAllData {
+  age?: number,
+  city: string,
+  energyLevel?: TEnergyAndIndependenceLevels,
+  environmentMinimumSize?: TEnvironmentMinimumSize,
+  independenceLevel?: TEnergyAndIndependenceLevels,
+  size?: TSizes,
+}
 
 /**
  * Interface defining the contract for a Pet repository.
@@ -21,6 +35,21 @@ interface IPetsRepository {
    * @returns A Promise that resolves to the newly created `Pet` object.
    */
   create(data: CreatePetInput): Promise<Pet>;
+  /**
+   * Finds all pet by its city name and other characteristics.
+   *
+   * @param data - An object containing the id property.
+   * - `city` (string): Required.
+   * - `age` (number): Optional.
+   * - `energyLevel` (string): Optional.
+   * - `independentLevel` (string): Optional.
+   * - `environmentMinimumSize` (string): Optional.
+   * - `size` (string): Optional.
+   *
+   * @returns A Promise that resolves to the matching `Pet`s object array
+   * or an empty array if no pets are found.
+   */
+  findAll(data: IFindAllData): Promise<Pet[] | []>;
   /**
    * Finds a pet by its id.
    *
