@@ -15,7 +15,7 @@ interface Pet {
   independenceLevel: TEnergyAndIndependenceLevels;
   environmentMinimumSize: TEnvironmentMinimumSize;
   wasAdopted: boolean;
-  orgId: string | null;
+  orgId: string;
 }
 
 type Overwrite = {
