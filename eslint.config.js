@@ -30,6 +30,7 @@ export default tseslint.config(
       "@stylistic/quotes": ["error", "double"],
       "@stylistic/semi": ["error"],
       "@typescript-eslint/no-base-to-string": "off",
+      "@typescript-eslint/require-await": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "sort/imports": "off",
