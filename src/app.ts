@@ -14,6 +14,7 @@ import { jwtConfigs } from "./config/fastify/jwt";
 import { rateLimitConfigs } from "./config/fastify/rate-limit";
 import { swaggerConfigs } from "./config/fastify/swagger";
 import { swaggerUiConfigs } from "./config/fastify/swagger-ui";
+import { orgsRoutes } from "./http/controllers/orgs/orgs.routes";
 
 const app = fastify();
 
@@ -30,5 +31,7 @@ void app.register(fastifySwagger, swaggerConfigs);
 void app.register(fastifySwaggerUi, swaggerUiConfigs);
 
 app.setErrorHandler(globalErrorHandler);
+
+void app.register(orgsRoutes);
 
 export { app };
