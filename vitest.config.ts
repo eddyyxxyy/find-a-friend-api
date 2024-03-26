@@ -8,4 +8,8 @@ export default defineConfig({
       "@tests": path.resolve(__dirname, "./tests"),
     },
   },
+  test: {
+    globals: true,
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+  },
 });

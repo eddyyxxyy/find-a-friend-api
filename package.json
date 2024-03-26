@@ -11,7 +11,11 @@
     "prisma:docs": "npx prisma-docs-generator serve -p 3344",
     "start": "node dist/server.cjs",
     "start:dev": "tsx watch src/server.ts",
-    "test:unit": "vitest run --dir src/services"
+    "test:unit": "vitest run --dir src/services",
+    "test:install-prisma-environment": "npm link vitest-environment-prisma",
+    "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+    "pretest:e2e": "npm run test:create-prisma-environment && npm run test:install-prisma-environment",
+    "test:e2e": "vitest run --dir src/http"
   },
   "repository": {
     "type": "git",
@@ -42,6 +46,7 @@
     "@stylistic/eslint-plugin": "^1.6.3",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.11.23",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.57.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-sort": "^2.11.0",
@@ -49,6 +54,7 @@
     "prisma": "^5.10.2",
     "prisma-docs-generator": "^0.8.0",
     "prisma-erd-generator": "^1.11.2",
+    "supertest": "^6.3.4",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
